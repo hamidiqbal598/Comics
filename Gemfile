@@ -26,6 +26,7 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'whenever', '~> 0.9.4'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jquery-rails'
+gem 'rails-erd', group: :development
 
 group :development, :test do
   gem 'rspec-rails'
