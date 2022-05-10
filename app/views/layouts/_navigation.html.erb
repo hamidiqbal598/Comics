@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark navbar-static-top navbar-expand-md">
+  <div class="container">
+    <%= link_to "Comics", root_path, class: 'navbar-brand' %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav mr-auto right">
+        <li class='nav-item'><%= link_to 'Comics', root_path, class: 'nav-link' %></li>
+
+        <%# if admin_signed_in? %>
+<!--          <li class='nav-item'><%#= link_to 'Sign out', logout_path, method: :delete, class: 'nav-link' %></li>-->
+        <%# else %>
+<!--          <li class='nav-item'><%#= link_to 'Sign In', admin_session_path, class: 'nav-link' %></li>-->
+        <%# end %>
+
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

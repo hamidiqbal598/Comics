@@ -1,0 +1,83 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Marvel Story</h1>
+  </div>
+  <div class="container">
+    <div class="">
+      <%= form_tag fetch_story_marvel_stories_path, method: :get do %>
+        <div class="row">
+          <div class="col-lg-4">
+            <label>Select Name of Character : </label>
+            <%= select_tag :character_real_id, options_for_select(Character.all.map{|character| [ character.name, character.character_real_id] }, params[:character_real_id]), prompt: 'Select Character Name ? ', class: 'form-control  chosen-select', onchange: "setStory()" %>
+          </div>
+          <div class="col-lg-4">
+            <label>Select Story with Exact Title : </label>
+            <%= text_field_tag :story_name, params[:story_name], class: 'form-control', onchange: "setStory()" %>
+          </div>
+          <div class="col-lg-4">
+            <label>Select Story with Exact Id ? </label>
+            <%= text_field_tag :story_id, params[:story_id], class: 'form-control chosen-select'%>
+          </div>
+        </div>
+        <div style="justify-content: center" class="row">
+          <br>
+          <div class="col-lg-12">
+            <%= submit_tag 'Apply', class: 'btn btn-primary' %>
+            <%= link_to 'Reset', fetch_story_marvel_stories_path, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% if @marvel_story %>
+  <div class="container">
+    <div class="marvel_story">
+      <h1>Meet The Current Marvel Story </h1>
+      <div class="card">
+        <h2>Marvel Attribution Text : <%= @marvel_story.attribution_text %> </h2>
+        <h3>Marvel Title : <%= @marvel_story.title.empty? ? "No Title Available" : @marvel_story.title %> </h3>
+        <h3>Marvel Detail : <%= @marvel_story.description.empty? ? "No Description Available" : @marvel_story.description %> </h3>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <div class="container">
+    <div class="divTable">
+      <% @characters.each do |character| %>
+        <div class="column" style="letter-spacing: normal">
+          <div class="card">
+            <img src= '<%= character.picture.attached? ? (url_for(character.picture)) : "No Image" %>' alt="No Image Present" style="width:100%;">
+            <div class="container">
+              <h3><%= character.name %></h3>
+              <p class="title"><%= character.character_description.empty? ? "Character has no title :(" : truncate(character.character_description, :length => 50) %></p>
+              <p> Joined at: <%= character.created_at.to_s %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="pagination">
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="container">
+    <div class="marvel_story">
+      <h1>No Current Marvel Story Available </h1>
+      <div class="card">
+        <% if @error.present? %>
+          <h2>Marvel Error <%= @error %> </h2>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  </div>
+
+<% end %>
+
+
+

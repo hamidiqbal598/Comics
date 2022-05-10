@@ -1,0 +1,27 @@
+<%= form_with(model: marvel_story) do |form| %>
+  <% if marvel_story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(marvel_story.errors.count, "error") %> prohibited this marvel_story from being saved:</h2>
+
+      <ul>
+        <% marvel_story.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attribution_text %>
+    <%= form.text_area :attribution_text %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

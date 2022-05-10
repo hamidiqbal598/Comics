@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @marvel_story.description %>
+</p>
+
+<p>
+  <strong>Attribution text:</strong>
+  <%= @marvel_story.attribution_text %>
+</p>
+
+<%= link_to 'Edit', edit_marvel_story_path(@marvel_story) %> |
+<%= link_to 'Back', marvel_stories_path %>
