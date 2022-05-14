@@ -62,7 +62,6 @@ class MarvelStoriesController < ApplicationController
           @error = "No Marvel Story exist with this Title and Character"
         end
       end
-
     end
 
   end

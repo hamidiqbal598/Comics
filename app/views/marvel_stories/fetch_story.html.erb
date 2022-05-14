@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-lg-4">
             <label>Select Name of Character : </label>
-            <%= select_tag :character_real_id, options_for_select(Character.all.map{|character| [ character.name, character.character_real_id] }, params[:character_real_id]), prompt: 'Select Character Name ? ', class: 'form-control  chosen-select', onchange: "setStory()" %>
+            <%= select_tag :character_real_id, options_for_select(Character.all.uniq.map{|character| [ character.name, character.character_real_id] }, params[:character_real_id]), prompt: 'Select Character Name ? ', class: 'form-control  chosen-select', onchange: "setStory()" %>
           </div>
           <div class="col-lg-4">
             <label>Select Story with Exact Title : </label>

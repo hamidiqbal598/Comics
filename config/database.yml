@@ -20,9 +20,9 @@ default: &default
 
   # If you are using docker instance then you need these below three lines
   # ----------------------------------------------------------------------
-  #  host: database
-  #  username: postgres
-  #  password: password
+#  host: database
+#  username: postgres
+#  password: password
   # ----------------------------------------------------------------------
   # Please Uncomment these above 3 line including host, username, password
 
